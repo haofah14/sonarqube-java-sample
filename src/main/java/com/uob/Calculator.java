@@ -1,9 +1,11 @@
 package com.uob;
 
 public class Calculator {
-
     public int divide(int a, int b) {
-        // BUG: divide by zero → will cause runtime exception
-        return a / 0;
+        try {
+            return a / b;
+        } catch (Exception e) { // empty catch block
+        }
+        return 0;
     }
 }
