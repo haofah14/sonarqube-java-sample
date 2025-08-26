@@ -7,6 +7,7 @@ public class Calculator {
         } catch (Exception e) { // Code Smell: empty catch block
         }
         int unusedVar = 100; // Code Smell: unused variable
+        int result = 10/0;
         return 0;
     }
 }
