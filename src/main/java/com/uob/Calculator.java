@@ -1,13 +1,15 @@
 package com.uob;
 
 public class Calculator {
+
     public int divide(int a, int b) {
         try {
-            return a / b; // Bug: divide by zero possible if b=0
-        } catch (Exception e) { // Code Smell: empty catch block
+            // BUG: divide by zero → will cause runtime exception if executed
+            return a / 0;
+        } catch (Exception e) { 
+            // CODE SMELL: empty catch block → hides runtime errors, can lead to undetected failures
         }
-        int unusedVar = 100; // Code Smell: unused variable
-        int result = 10/0;
+        int unusedVar = 42; // CODE SMELL: unused variable → clutter, reduces readability
         return 0;
     }
 }

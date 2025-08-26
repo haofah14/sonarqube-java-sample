@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class HelloBank {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        String password = "abc"; // Vulnerability: hardcoded password
+        String password = "abc123"; // Vulnerability: hardcoded password
         System.out.println("Welcome to UOB!");
         System.out.println("Welcome to UOBx!");
 
