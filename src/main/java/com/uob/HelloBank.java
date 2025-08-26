@@ -6,14 +6,13 @@ import java.security.NoSuchAlgorithmException;
 public class HelloBank {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        // VULNERABILITY: Hardcoded password → security risk if credentials leak
-        String password = "abc123";
+        // VULNERABILITY: Hardcoded password used for hashing
+        String password = "SuperSecret123"; // SonarCloud will flag this
+
+        // Using password in hashing triggers Vulnerability
+        MessageDigest md = MessageDigest.getInstance("MD5"); // insecure
+        byte[] hash = md.digest(password.getBytes());
 
         System.out.println("Welcome to UOB!");
-        System.out.println("Welcome to UOBx!");
-
-        // VULNERABILITY: Using MD5 hashing → insecure, could be exploited
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] hash = md.digest(password.getBytes());
     }
 }
